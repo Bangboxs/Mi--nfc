@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF‑8"><title>Doble Místico</title></head>
+<body>
+  <h1>Descubre tu doble</h1>
+  <div id="quiz">
+    <p>1. Elige un color:</p>
+    <button onclick="choose('rojo')">🔴 Rojo</button>
+    <button onclick="choose('azul')">🔵 Azul</button>
+  </div>
+  <script>
+    const choices = {};
+    function choose(q) {
+      if (!choices.q1) { choices.q1 = q; document.getElementById('quiz').innerHTML = `<p>2. ¿Prefieres ciudad o bosque?</p>
+        <button onclick="choose('ciudad')">Ciudad</button><button onclick="choose('bosque')">Bosque</button>`; }
+      else {
+        const result = (choices.q1==='rojo' && q==='ciudad') ? "✨ Tu doble es Nivalis, viajero de auroras" :
+                       (choices.q1==='azul' && q==='bosque') ? "🌌 Tu doble es Yuki, guardián de hielos" :
+                       "🌿 Tu doble es un misterioso caminante nocturno";
+        document.body.innerHTML = `<h1>${result}</h1><p>Gracias por jugar.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
